@@ -11,10 +11,14 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>(function(){var t='dark';try{t=localStorage.getItem('u26-theme')||'dark'}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];document.documentElement.dataset.theme=t;try{var m=localStorage.getItem('u26-motion');if(m)document.documentElement.dataset.motion=m}catch(e){}})()</script>
   <link rel="stylesheet" href="assets/style.css">
+  <script>(function(){var d=document.documentElement,q=location.search,h=/(^|\/)(index\.html)?$/.test(location.pathname),r=matchMedia('(prefers-reduced-motion: reduce)').matches,ok=h&&!r&&d.dataset.motion!=='off'&&!navigator.webdriver&&!/[?&]boot=0/.test(q);try{if(sessionStorage.getItem('u26-booted')&&!/[?&]boot=1/.test(q))ok=false}catch(e){}if(/[?&]boot=1/.test(q)&&h&&!r)ok=true;if(ok)d.classList.add('booting')})()</script>
   <script src="assets/app.js" defer></script>
   <script src="assets/octocat.js" defer></script>
+  <script src="assets/fx.js" defer></script>
+  <script src="assets/search-index.js" defer></script>
+  <script src="assets/palette.js" defer></script>
 </head>
-<body>
+<body data-page="sessions">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -38,6 +42,8 @@
     <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol>
     <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
@@ -57,6 +63,7 @@
       <a href="announcements.html"><svg class="i nav-ico" aria-hidden="true"><use href="#i-list"/></svg><span>Announcements</span></a>
       <a href="voices.html"><svg class="i nav-ico" aria-hidden="true"><use href="#i-chat"/></svg><span>Outside voices</span></a>
     </nav>
+    <button class="icon-btn search-btn" type="button" data-palette-open aria-label="Search (Ctrl K)" title="Search · Ctrl K"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
     <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
       <svg class="i sun"><use href="#i-sun"/></svg><svg class="i moon"><use href="#i-moon"/></svg>
     </button>
@@ -82,10 +89,11 @@
         <button class="tab" data-filter="sdlc" aria-pressed="false">SDLC &amp; quality <span class="counter">4</span></button>
         <button class="tab" data-filter="security" aria-pressed="false">Security <span class="counter">3</span></button>
         <button class="tab" data-filter="community" aria-pressed="false">Community <span class="counter">1</span></button>
+        <button class="tab" data-filter="saved" aria-pressed="false">★ Saved <span class="counter">0</span></button>
       </div>
 
       <ul class="list reveal">
-        <li class="sess top" data-cat="sdlc" style="--c:var(--accent)">
+        <li class="sess top" id="s1" data-cat="sdlc" style="--c:var(--accent)">
           <div class="lead">1</div>
           <div>
             <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
@@ -93,9 +101,9 @@
             <p>Break a change into small dependent PRs, review each on its own, merge as each is ready. Live demo with the GitHub CLI; a workflow you can use tomorrow.</p>
             <div class="by"><b>Sameen Karim</b> · GitHub</div>
           </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777610662772001qS4e">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777610662772001qS4e">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess top" data-cat="agentic" style="--c:var(--purple)">
+        <li class="sess top" id="s2" data-cat="agentic" style="--c:var(--purple)">
           <div class="lead">2</div>
           <div>
             <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
@@ -103,9 +111,9 @@
             <p>How the Copilot team tests and tunes its agent across models: reproducible benchmarks, thousands of autonomous tasks, LLM-graded assertions.</p>
             <div class="by"><b>Julia Kasper</b> · Microsoft</div>
           </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777584211997001vbxd">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777584211997001vbxd">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess top" data-cat="agentic" style="--c:var(--purple)">
+        <li class="sess top" id="s3" data-cat="agentic" style="--c:var(--purple)">
           <div class="lead">3</div>
           <div>
             <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
@@ -113,9 +121,9 @@
             <p>A benchmark built from real PR sequences shows that piling up context can hurt agent performance, and what that means for agent memory.</p>
             <div class="by"><b>Cooper Nederhood, Alejandro Carderera</b> · GitHub</div>
           </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777557576923001fNOZ">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777557576923001fNOZ">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess top" data-cat="security" style="--c:var(--red)">
+        <li class="sess top" id="s4" data-cat="security" style="--c:var(--red)">
           <div class="lead">4</div>
           <div>
             <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
@@ -123,9 +131,9 @@
             <p>Maps supply chain attack techniques to Actions controls across the ecosystem, the workflow attack surface and runner infrastructure.</p>
             <div class="by"><b>Steve Glass, Greg Ose</b> · GitHub</div>
           </div>
-          <div class="side"><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777658986177001QNCH">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777658986177001QNCH">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess top" data-cat="security" style="--c:var(--red)">
+        <li class="sess top" id="s5" data-cat="security" style="--c:var(--red)">
           <div class="lead">5</div>
           <div>
             <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
@@ -133,82 +141,83 @@
             <p>Traces a dependency back to the people, permissions and release systems behind it, including the limits of <code>npm audit</code>, provenance and OIDC.</p>
             <div class="by"><b>Karen Li, Leo Balter</b> · GitHub</div>
           </div>
-          <div class="side"><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777602763278001LSdB">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777602763278001LSdB">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
 
-        <li class="sess" data-cat="agentic" style="--c:var(--purple)">
+        <li class="sess" id="s6" data-cat="agentic" style="--c:var(--purple)">
           <div class="lead"><svg class="i lg"><use href="#i-spark"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1778275240014001huB4">Treat your AI context as infrastructure</a></h3>
             <p>What instructions, skills and MCP servers are each best for, and how to share the right context across a team as the setup grows.</p>
             <div class="by"><b>Christopher Harrison</b> · GitHub</div>
           </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1778275240014001huB4">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1778275240014001huB4">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="agentic" style="--c:var(--purple)">
+        <li class="sess" id="s7" data-cat="agentic" style="--c:var(--purple)">
           <div class="lead"><svg class="i lg"><use href="#i-spark"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776460904386001a8nL">Your benchmark is lying: what evals actually look like</a></h3>
             <p>How Copilot evaluates models in production: what the team measures, and what it has stopped measuring.</p>
             <div class="by"><b>Walker Chabbott</b> · GitHub &nbsp;·&nbsp; <b>Julia Kasper</b> · Microsoft</div>
           </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776460904386001a8nL">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776460904386001a8nL">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="sdlc" style="--c:var(--accent)">
+        <li class="sess" id="s8" data-cat="sdlc" style="--c:var(--accent)">
           <div class="lead"><svg class="i lg"><use href="#i-merge"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1787615869752001IyaJ">Beyond pass or fail: how agents verify AI-generated code</a></h3>
             <p>How agents investigate an app, reproduce odd behavior, and tell a product bug from a broken test or infrastructure failure, with deterministic controls around them.</p>
             <div class="by"><b>Jeff An</b> · Momentic</div>
           </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1787615869752001IyaJ">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1787615869752001IyaJ">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="sdlc" style="--c:var(--accent)">
+        <li class="sess" id="s9" data-cat="sdlc" style="--c:var(--accent)">
           <div class="lead"><svg class="i lg"><use href="#i-merge"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777687372042001GE87">The 2 a.m. RCA agent: architecting AI that investigates, not hallucinates</a></h3>
             <p>Deterministic code collects signals, traverses topology, correlates and scores. The language model only narrates the evidence.</p>
             <div class="by"><b>Achin Gupta</b> · Intuit &nbsp;·&nbsp; <b>Divya Mahajan</b> · Amazon</div>
           </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777687372042001GE87">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777687372042001GE87">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="security" style="--c:var(--red)">
+        <li class="sess" id="s10" data-cat="security" style="--c:var(--red)">
           <div class="lead"><svg class="i lg"><use href="#i-shield"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777489102123001ThSM">Open pull requests, don't merge them: fine-grained authorization for hosted MCP servers</a></h3>
             <p>An identity-aware proxy enforces per-identity permissions in front of a hosted MCP server, with no changes to the upstream server.</p>
             <div class="by"><b>Nick Taylor</b> · Pomerium</div>
           </div>
-          <div class="side"><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777489102123001ThSM">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777489102123001ThSM">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="agentic" style="--c:var(--purple)">
+        <li class="sess" id="s11" data-cat="agentic" style="--c:var(--purple)">
           <div class="lead"><svg class="i lg"><use href="#i-spark"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1785179690271001xi4A">Build once, run on any agent: a practical guide to agent skills</a></h3>
             <p>When a workflow is worth turning into a reusable skill, with examples from recurring work and a production data engineering team.</p>
             <div class="by"><b>Andrea Griffiths</b> · GitHub &nbsp;·&nbsp; <b>Shishir Tewari</b> · Procore</div>
           </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1785179690271001xi4A">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1785179690271001xi4A">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="sdlc" style="--c:var(--accent)">
+        <li class="sess" id="s12" data-cat="sdlc" style="--c:var(--accent)">
           <div class="lead"><svg class="i lg"><use href="#i-merge"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776349155958001oTwn">One CLI to replace your entire JavaScript toolchain</a></h3>
             <p>A real migration to Vite+, an open source CLI for bundling, testing, linting, formatting and runtime management, plus the roadmap.</p>
             <div class="by"><b>Alexander Lichter</b> · VoidZero</div>
           </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776349155958001oTwn">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776349155958001oTwn">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
-        <li class="sess" data-cat="community" style="--c:var(--green)">
+        <li class="sess" id="s13" data-cat="community" style="--c:var(--green)">
           <div class="lead"><svg class="i lg"><use href="#i-heart"/></svg></div>
           <div>
             <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1775902696655001nnFo">Lessons from building tech in a low-connectivity community</a></h3>
             <p>Building CarbonSight for low-connectivity communities in Ghana, with an offline demo.</p>
             <div class="by"><b>Alex Junior Antwi</b> · Braveon AI</div>
           </div>
-          <div class="side"><span class="label c-comm">Community</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1775902696655001nnFo">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="side"><button class="save" type="button" aria-pressed="false" aria-label="Save this session" title="Save"><svg class="i"><use href="#i-star"/></svg></button><span class="label c-comm">Community</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1775902696655001nnFo">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
         </li>
       </ul>
+      <p class="empty-saved" hidden>No saved sessions yet. Tap the star on a session to keep it here. Saved picks stay in this browser only.</p>
 
       <p class="note">Keynote speakers and more sessions are in the <a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog?tab.allsessions=1783449560443001ldrh&amp;search.deliveryformat=1692799009854002CBbz">full on-demand catalog</a>. Featured speakers include Angie Jones, Kent C. Dodds, John Maeda and Franck Nijhof.</p>
 
@@ -231,11 +240,11 @@
           <a href="https://github.com/events/universe/recap">Official recap</a>
           <a href="https://octoverse.github.com/">Octoverse 2026</a>
         </div>
-        <p><button class="motion-btn" type="button" data-motion-toggle>Background animation: on</button></p>
+        <p class="fx-row"><button class="motion-btn" type="button" data-motion-toggle>Background animation: on</button> <button class="motion-btn" type="button" data-replay>Replay intro</button> <button class="motion-btn" type="button" data-matrix>Enter the matrix</button> <button class="motion-btn" type="button" data-palette-open>Search <kbd>Ctrl K</kbd></button></p>
         <p>An unofficial community recap. Not affiliated with or endorsed by GitHub. GitHub and Copilot are trademarks of GitHub, Inc.</p>
         <p>Compiled and last updated November 9, 2026 from GitHub's blog, changelog and recap page, the Octoverse report, and the third-party pieces linked on the <a href="voices.html">outside voices</a> page. Feature statuses (GA, public preview) come from each feature's docs and are explained on the <a href="announcements.html">announcements page</a>.</p>
       </div>
-      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a></div>
+      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a><span class="since" data-since="2026-10-28"></span></div>
     </div>
   </div>
 </footer>

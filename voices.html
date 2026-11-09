@@ -11,10 +11,14 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>(function(){var t='dark';try{t=localStorage.getItem('u26-theme')||'dark'}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];document.documentElement.dataset.theme=t;try{var m=localStorage.getItem('u26-motion');if(m)document.documentElement.dataset.motion=m}catch(e){}})()</script>
   <link rel="stylesheet" href="assets/style.css">
+  <script>(function(){var d=document.documentElement,q=location.search,h=/(^|\/)(index\.html)?$/.test(location.pathname),r=matchMedia('(prefers-reduced-motion: reduce)').matches,ok=h&&!r&&d.dataset.motion!=='off'&&!navigator.webdriver&&!/[?&]boot=0/.test(q);try{if(sessionStorage.getItem('u26-booted')&&!/[?&]boot=1/.test(q))ok=false}catch(e){}if(/[?&]boot=1/.test(q)&&h&&!r)ok=true;if(ok)d.classList.add('booting')})()</script>
   <script src="assets/app.js" defer></script>
   <script src="assets/octocat.js" defer></script>
+  <script src="assets/fx.js" defer></script>
+  <script src="assets/search-index.js" defer></script>
+  <script src="assets/palette.js" defer></script>
 </head>
-<body>
+<body data-page="voices">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -38,6 +42,8 @@
     <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol>
     <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
@@ -57,6 +63,7 @@
       <a href="announcements.html"><svg class="i nav-ico" aria-hidden="true"><use href="#i-list"/></svg><span>Announcements</span></a>
       <a href="voices.html" aria-current="page"><svg class="i nav-ico" aria-hidden="true"><use href="#i-chat"/></svg><span>Outside voices</span></a>
     </nav>
+    <button class="icon-btn search-btn" type="button" data-palette-open aria-label="Search (Ctrl K)" title="Search · Ctrl K"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
     <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
       <svg class="i sun"><use href="#i-sun"/></svg><svg class="i moon"><use href="#i-moon"/></svg>
     </button>
@@ -88,7 +95,7 @@
       </div>
 
       <div class="voices">
-        <article class="comment reveal" data-cat="critical" style="--c:var(--orange)">
+        <article class="comment reveal" id="v1" data-cat="critical" style="--c:var(--orange)">
           <div class="comment-head"><span class="avatar" style="--a:#d29922;--b:#f85149">TC</span><strong>Thomas Claburn</strong><span>The Register · Oct 28</span><span class="label c-press">Press</span></div>
           <div class="comment-body">
             <h3><a href="https://www.theregister.com/ai-and-ml/2026/10/28/github-powering-up-four-million-extra-cores-to-stop-its-service-going-down/5305863">GitHub powering up four million extra cores to stop its service going down</a></h3>
@@ -96,7 +103,7 @@
             <blockquote class="take"><span class="tag">Skeptical</span>Says the surge “caught the company unprepared” and reads free Copilot seats for Enterprise as an effort to boost workplace usage. Performance claims are attributed to GitHub executives.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
+        <article class="comment reveal" id="v2" data-cat="analysis" style="--c:var(--accent)">
           <div class="comment-head"><span class="avatar" style="--a:#4493f8;--b:#3fb950">CF</span><strong>Carl Franzen</strong><span>VentureBeat · Oct 28</span><span class="label c-press">Press</span></div>
           <div class="comment-body">
             <h3><a href="https://venturebeat.com/orchestration/github-copilot-fusion-mixes-models-to-achieve-near-opus-5-5-coding-performance-at-half-the-per-task-cost">GitHub Copilot Fusion mixes models to achieve near-Opus 5.5 coding performance at half the per-task cost</a></h3>
@@ -104,7 +111,7 @@
             <blockquote class="take"><span class="tag">Independent data, with caveats</span>Results were uneven (Fusion led Terminal-Bench 4.0 but trailed on FrontierCode). The 40% time saving is GitHub-reported, and benchmark costs are not a forecast of an enterprise bill.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="critical" style="--c:var(--orange)">
+        <article class="comment reveal" id="v3" data-cat="critical" style="--c:var(--orange)">
           <div class="comment-head"><span class="avatar" style="--a:#ab7df8;--b:#4493f8">AC</span><strong>Ana Maria Constantin</strong><span>The Next Web · Oct 28</span><span class="label c-press">Press</span></div>
           <div class="comment-body">
             <h3><a href="https://thenextweb.com/news/github-universe-copilot-fusion-octoverse-agents">GitHub launches Copilot Fusion as agents start 40% of pull requests</a></h3>
@@ -112,7 +119,7 @@
             <blockquote class="take"><span class="tag">Read the numbers carefully</span>Parikh's “half the cost” and Nadella's “up to 77%” may measure different things, and “started with an agent draft” says nothing about whether the code was kept. GitHub says its agent count is a floor.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
+        <article class="comment reveal" id="v4" data-cat="analysis" style="--c:var(--accent)">
           <div class="comment-head"><span class="avatar" style="--a:#db61a2;--b:#ab7df8">AG</span><strong>Anirban Ghoshal</strong><span>InfoWorld · Oct 30</span><span class="label c-press">Press</span></div>
           <div class="comment-body">
             <h3><a href="https://www.infoworld.com/article/4242710/github-bets-on-multi-agent-software-development-with-copilot-overhaul.html">GitHub bets on multi-agent software development with Copilot overhaul</a></h3>
@@ -120,7 +127,7 @@
             <blockquote class="take"><span class="tag">Governance first</span>Advice to CIOs: restrict agent access to specific repos, enforce branch protection, require human approval before agent PRs merge, and send agent audit logs to a SIEM. Cites a 2026 study (CooperBench) finding about 30% lower success when agents collaborate.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="critical" style="--c:var(--orange)">
+        <article class="comment reveal" id="v5" data-cat="critical" style="--c:var(--orange)">
           <div class="comment-head"><span class="avatar" style="--a:#f85149;--b:#d29922">KS</span><strong>Kanishk Singh</strong><span>Analytics India Magazine · Nov 3</span><span class="label c-press">Press</span></div>
           <div class="comment-body">
             <h3><a href="https://analyticsindiamag.com/ai-features/does-the-world-need-a-new-github">Does the World Need a New GitHub?</a></h3>
@@ -128,7 +135,7 @@
             <blockquote class="take"><span class="tag">Reliability and rivals</span>Asked directly, GitHub COO Kyle Daigle says “I don't think the world needs a new GitHub.” The piece also quotes Parikh conceding “there are times this year when we struggled.”</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
+        <article class="comment reveal" id="v6" data-cat="analysis" style="--c:var(--accent)">
           <div class="comment-head"><span class="avatar" style="--a:#3fb950;--b:#39c5cf">KT</span><strong>Kiara Taylor</strong><span>Investing.com · Nov 9</span><span class="label c-press">Market analysis</span></div>
           <div class="comment-body">
             <h3><a href="https://www.investing.com/analysis/can-microsofts-copilot-charge-enough-for-its-heaviest-users-200691203">Can Microsoft's Copilot Charge Enough for Its Heaviest Users?</a></h3>
@@ -136,7 +143,7 @@
             <blockquote class="take"><span class="tag">Follow the margin</span>Finds Microsoft's disclosures do not separate paid overage from included or promotional credits, and that GitHub appears in 13 sentences of the earnings call with no cost or margin figures.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="community" style="--c:var(--green)">
+        <article class="comment reveal" id="v7" data-cat="community" style="--c:var(--green)">
           <div class="comment-head"><span class="avatar" style="--a:#d29922;--b:#db61a2">RH</span><strong>Ronald Holman</strong><span>Tech Times · Oct 28</span><span class="label c-press">Press</span></div>
           <div class="comment-body">
             <h3><a href="https://www.techtimes.com/articles/329629/20261028/github-processing-17-million-ai-pull-requests-month-can-platform-built-2008-actually-handle.htm">GitHub Is Processing 17 Million AI Pull Requests a Month. Can a Platform Built in 2008 Actually Handle That?</a></h3>
@@ -144,7 +151,7 @@
             <blockquote class="take"><span class="tag">Competition</span>Sets Universe's infrastructure message against that launch. The $60M funding figure is Tech Times' own, and its 17 million PRs a month headline figure could not be matched to Octoverse.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="interview" style="--c:var(--purple)">
+        <article class="comment reveal" id="v8" data-cat="interview" style="--c:var(--purple)">
           <div class="comment-head"><span class="avatar" style="--a:#4493f8;--b:#ab7df8">VF</span><strong>Vladimir Fedorov</strong><span>iTWire · Oct 29 · GitHub's CTO</span><span class="label c-ms">Interview</span></div>
           <div class="comment-body">
             <h3><a href="https://itwire.com/business-it-news/enterprise-solutions/human-judgment-is-the-scarce-resource-in-ai-software-development-says-github-cto">Human judgment is the scarce resource in AI software development says GitHub CTO</a></h3>
@@ -152,7 +159,7 @@
             <blockquote class="take"><span class="tag">The case for approvals</span>Fedorov points to models from different families catching each other's mistakes, the idea behind Max review. Copilot approvals are off by default and admins can restrict which file paths Copilot may approve.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="interview" style="--c:var(--purple)">
+        <article class="comment reveal" id="v9" data-cat="interview" style="--c:var(--purple)">
           <div class="comment-head"><span class="avatar" style="--a:#ab7df8;--b:#db61a2">JP</span><strong>Jay Parikh</strong><span>Latent Space · Nov 8 · summary via BigGo</span><span class="label c-ms">Interview</span></div>
           <div class="comment-body">
             <h3><a href="https://www.youtube.com/watch?v=rSWiNE92xqM">GitHub’s Growth: 225M Developers, 34.3B Commits — Jay Parikh, EVP of CoreAI, Microsoft</a></h3>
@@ -160,7 +167,7 @@
             <blockquote class="take"><span class="tag">On cost and reliability</span>Per the summary, GitHub is adding per-organization token-spend visibility, model-swap recommendations and hard limits, and he calls finishing the Azure migration next year the goal. How spend maps to ROI is left open.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
+        <article class="comment reveal" id="v10" data-cat="analysis" style="--c:var(--accent)">
           <div class="comment-head"><span class="avatar" style="--a:#4493f8;--b:#ab7df8">SW</span><strong>Simon Willison</strong><span>simonwillison.net · Oct 28</span><span class="label c-indie">Independent</span></div>
           <div class="comment-body">
             <h3><a href="https://simonwillison.net/2026/Oct/28/github-octoverse-2026/">GitHub Octoverse 2026</a></h3>
@@ -168,7 +175,7 @@
             <blockquote class="take"><span class="tag">Data-driven</span>Calls the charts a “stark representation of the impact of agentic engineering on GitHub,” and singles out the report's new industry and interoperability breakdowns.</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--purple)">
+        <article class="comment reveal" id="v11" data-cat="analysis" style="--c:var(--purple)">
           <div class="comment-head"><span class="avatar" style="--a:#ab7df8;--b:#db61a2">TB</span><strong>Tim Bozarth</strong><span>Microsoft · Oct 27</span><span class="label c-ms">Microsoft</span></div>
           <div class="comment-body">
             <h3><a href="https://commandline.microsoft.com/new-agentic-software-delivery-primitives/">New agentic software delivery primitives</a></h3>
@@ -176,7 +183,7 @@
             <blockquote class="take"><span class="tag">Framework</span>Human judgment concentrates on validation, operation and planning. Memory should be judged by whether it makes agents work better, not by how big it is. (GitHub's parent company, so not fully outside.)</blockquote>
           </div>
         </article>
-        <article class="comment reveal" data-cat="community" style="--c:var(--green)">
+        <article class="comment reveal" id="v12" data-cat="community" style="--c:var(--green)">
           <div class="comment-head"><span class="avatar" style="--a:#3fb950;--b:#4493f8">C3</span><strong>Conn3x team</strong><span>conn3x.org · Oct 28</span><span class="label c-comm">Community</span></div>
           <div class="comment-body">
             <h3><a href="https://conn3x.org/blog/github-universe-2026">GitHub Universe, and the place Conn3x lives</a></h3>
@@ -219,11 +226,11 @@
           <a href="https://github.com/events/universe/recap">Official recap</a>
           <a href="https://octoverse.github.com/">Octoverse 2026</a>
         </div>
-        <p><button class="motion-btn" type="button" data-motion-toggle>Background animation: on</button></p>
+        <p class="fx-row"><button class="motion-btn" type="button" data-motion-toggle>Background animation: on</button> <button class="motion-btn" type="button" data-replay>Replay intro</button> <button class="motion-btn" type="button" data-matrix>Enter the matrix</button> <button class="motion-btn" type="button" data-palette-open>Search <kbd>Ctrl K</kbd></button></p>
         <p>An unofficial community recap. Not affiliated with or endorsed by GitHub. GitHub and Copilot are trademarks of GitHub, Inc.</p>
         <p>Compiled and last updated November 9, 2026 from GitHub's blog, changelog and recap page, the Octoverse report, and the third-party pieces linked on the <a href="voices.html">outside voices</a> page. Feature statuses (GA, public preview) come from each feature's docs and are explained on the <a href="announcements.html">announcements page</a>.</p>
       </div>
-      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a></div>
+      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a><span class="since" data-since="2026-10-28"></span></div>
     </div>
   </div>
 </footer>

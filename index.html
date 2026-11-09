@@ -11,11 +11,15 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>(function(){var t='dark';try{t=localStorage.getItem('u26-theme')||'dark'}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];document.documentElement.dataset.theme=t;try{var m=localStorage.getItem('u26-motion');if(m)document.documentElement.dataset.motion=m}catch(e){}})()</script>
   <link rel="stylesheet" href="assets/style.css">
+  <script>(function(){var d=document.documentElement,q=location.search,h=/(^|\/)(index\.html)?$/.test(location.pathname),r=matchMedia('(prefers-reduced-motion: reduce)').matches,ok=h&&!r&&d.dataset.motion!=='off'&&!navigator.webdriver&&!/[?&]boot=0/.test(q);try{if(sessionStorage.getItem('u26-booted')&&!/[?&]boot=1/.test(q))ok=false}catch(e){}if(/[?&]boot=1/.test(q)&&h&&!r)ok=true;if(ok)d.classList.add('booting')})()</script>
   <script src="assets/app.js" defer></script>
   <script src="assets/octocat.js" defer></script>
+  <script src="assets/fx.js" defer></script>
+  <script src="assets/search-index.js" defer></script>
+  <script src="assets/palette.js" defer></script>
   <script>(function(){var m={'#sessions':'sessions.html','#voices':'voices.html'}[location.hash];if(m)location.replace(m)})()</script>
 </head>
-<body>
+<body data-page="home">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -39,6 +43,8 @@
     <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol>
     <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
@@ -58,6 +64,7 @@
       <a href="announcements.html"><svg class="i nav-ico" aria-hidden="true"><use href="#i-list"/></svg><span>Announcements</span></a>
       <a href="voices.html"><svg class="i nav-ico" aria-hidden="true"><use href="#i-chat"/></svg><span>Outside voices</span></a>
     </nav>
+    <button class="icon-btn search-btn" type="button" data-palette-open aria-label="Search (Ctrl K)" title="Search · Ctrl K"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
     <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
       <svg class="i sun"><use href="#i-sun"/></svg><svg class="i moon"><use href="#i-moon"/></svg>
     </button>
@@ -86,13 +93,15 @@
       </div>
 
       <div class="stats" role="list" aria-label="Key numbers">
-        <div class="stat spot" role="listitem"><b class="grad" data-count="7.38" data-dec="2" data-suf="B">7.38B</b><span>commits in Sept 2026, over 5× a year earlier</span></div>
-        <div class="stat spot" role="listitem"><b class="grad" data-count="40" data-suf="%+">40%+</b><span>of PRs started by agents in Sept (17% in March)</span></div>
-        <div class="stat spot" role="listitem"><b class="grad" data-count="225" data-suf="M+">225M+</b><span>developers on GitHub</span></div>
-        <div class="stat spot" role="listitem"><b class="grad" data-count="35" data-pre="Up to " data-suf="×">Up to 35×</b><span>write throughput in the new Git architecture (GitHub benchmark)</span></div>
+        <div class="stat spot tilt" role="listitem"><b class="grad" data-count="7.38" data-dec="2" data-suf="B">7.38B</b><span>commits in Sept 2026, over 5× a year earlier</span></div>
+        <div class="stat spot tilt" role="listitem"><b class="grad" data-count="40" data-suf="%+">40%+</b><span>of PRs started by agents in Sept (17% in March)</span></div>
+        <div class="stat spot tilt" role="listitem"><b class="grad" data-count="225" data-suf="M+">225M+</b><span>developers on GitHub</span></div>
+        <div class="stat spot tilt" role="listitem"><b class="grad" data-count="35" data-pre="Up to " data-suf="×">Up to 35×</b><span>write throughput in the new Git architecture (GitHub benchmark)</span></div>
       </div>
     </div>
   </div>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><span><b>7.38B</b> commits in September</span><span><b>40%+</b> of PRs started by agents</span><span><b>225M+</b> developers on GitHub</span><span><b>GA</b> Copilot Fusion</span><span><b>GA</b> Copilot approvals</span><span><b>4M</b> CPU cores added this year</span><span><b>13</b> sessions · <b>31</b> announcements · <b>12</b> voices</span><span><b>35×</b> write throughput (GitHub benchmark)</span><span><b>7.38B</b> commits in September</span><span><b>40%+</b> of PRs started by agents</span><span><b>225M+</b> developers on GitHub</span><span><b>GA</b> Copilot Fusion</span><span><b>GA</b> Copilot approvals</span><span><b>4M</b> CPU cores added this year</span><span><b>13</b> sessions · <b>31</b> announcements · <b>12</b> voices</span><span><b>35×</b> write throughput (GitHub benchmark)</span></div></div>
 
   <section id="explore">
     <div class="wrap">
@@ -100,21 +109,21 @@
       <h2 class="reveal">Pick your way in</h2>
       <p class="sub reveal">Three pages, each short and sorted by topic.</p>
       <div class="explore">
-        <a class="ex spot reveal" href="sessions.html" style="--c:var(--accent)">
+        <a class="ex spot tilt reveal" href="sessions.html" style="--c:var(--accent)">
           <div class="ico"><svg class="i lg"><use href="#i-play"/></svg></div>
           <h3>Sessions</h3>
           <div class="big">13<small>picks, top 5 ranked</small></div>
           <p>The talks worth your time, from stacked PRs to agent evals to supply chain threats. Filter by topic.</p>
           <span class="go">See the sessions <svg class="i"><use href="#i-arrow"/></svg></span>
         </a>
-        <a class="ex spot reveal" href="announcements.html" style="--c:var(--purple)">
+        <a class="ex spot tilt reveal" href="announcements.html" style="--c:var(--purple)">
           <div class="ico"><svg class="i lg"><use href="#i-list"/></svg></div>
           <h3>Announcements</h3>
           <div class="big">31<small>items, 3 GA, 13 in preview</small></div>
           <p>Everything GitHub announced, grouped by topic in the order it was presented, with availability status and docs links.</p>
           <span class="go">See the announcements <svg class="i"><use href="#i-arrow"/></svg></span>
         </a>
-        <a class="ex spot reveal" href="voices.html" style="--c:var(--green)">
+        <a class="ex spot tilt reveal" href="voices.html" style="--c:var(--green)">
           <div class="ico"><svg class="i lg"><use href="#i-chat"/></svg></div>
           <h3>Outside voices</h3>
           <div class="big">12<small>takes, 3 critical</small></div>
@@ -131,22 +140,22 @@
       <h2 class="reveal">One vision, four threads</h2>
       <p class="sub reveal">In his Universe post, Jay Parikh (EVP, CoreAI at Microsoft) describes GitHub's vision as “the most comprehensive software delivery system,” built for people <em>and</em> agents. Four threads run through everything announced.</p>
       <div class="themes">
-        <div class="theme spot t-purple reveal">
+        <div class="theme spot tilt t-purple reveal">
           <div class="ico"><svg class="i lg"><use href="#i-spark"/></svg></div>
           <h3>Agents become the default workflow</h3>
           <p>In September 2026, more than 40% of PRs on GitHub began with an agent's first draft, up from 17% in March (Octoverse). The Copilot app, Projects, automations and Fusion model routing are GitHub's answer.</p>
         </div>
-        <div class="theme spot t-blue reveal">
+        <div class="theme spot tilt t-blue reveal">
           <div class="ico"><svg class="i lg"><use href="#i-eye"/></svg></div>
           <h3>Review has to keep up</h3>
           <p>More agent output means more to read. Stacked PRs, a PR inbox, Copilot code review Max (public preview) and Copilot approvals (GA, off by default) go after the review bottleneck.</p>
         </div>
-        <div class="theme spot t-red reveal">
+        <div class="theme spot tilt t-red reveal">
           <div class="ico"><svg class="i lg"><use href="#i-shield"/></svg></div>
           <h3>Security moves into the build loop</h3>
           <p>AI Scan, AI push protection, an npm package firewall and reachability analysis, plus a Security canvas in the Copilot app. All of them launched in public preview.</p>
         </div>
-        <div class="theme spot t-orange reveal">
+        <div class="theme spot tilt t-orange reveal">
           <div class="ico"><svg class="i lg"><use href="#i-server"/></svg></div>
           <h3>Reliability is the subtext</h3>
           <p>Pushes grew 4.9× in a year. GitHub is rebuilding its Git infrastructure while the service stays live and adding 4M CPU cores. Its own availability report admits a missed migration goal, and press coverage was skeptical.</p>
@@ -212,11 +221,11 @@
           <a href="https://github.com/events/universe/recap">Official recap</a>
           <a href="https://octoverse.github.com/">Octoverse 2026</a>
         </div>
-        <p><button class="motion-btn" type="button" data-motion-toggle>Background animation: on</button></p>
+        <p class="fx-row"><button class="motion-btn" type="button" data-motion-toggle>Background animation: on</button> <button class="motion-btn" type="button" data-replay>Replay intro</button> <button class="motion-btn" type="button" data-matrix>Enter the matrix</button> <button class="motion-btn" type="button" data-palette-open>Search <kbd>Ctrl K</kbd></button></p>
         <p>An unofficial community recap. Not affiliated with or endorsed by GitHub. GitHub and Copilot are trademarks of GitHub, Inc.</p>
         <p>Compiled and last updated November 9, 2026 from GitHub's blog, changelog and recap page, the Octoverse report, and the third-party pieces linked on the <a href="voices.html">outside voices</a> page. Feature statuses (GA, public preview) come from each feature's docs and are explained on the <a href="announcements.html">announcements page</a>.</p>
       </div>
-      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a></div>
+      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a><span class="since" data-since="2026-10-28"></span></div>
     </div>
   </div>
 </footer>
