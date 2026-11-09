@@ -97,25 +97,21 @@
     window.addEventListener('beforeprint', function () { counters.forEach(function (el) { fmt(el, parseFloat(el.dataset.count)); }); });
   }
 
-  /* session filter tabs */
-  var tabs = document.querySelector('[data-tabs]');
-  if (tabs) {
+  /* filter tabs (sessions, outside voices): each [data-tabs] filters the items matched by its data-items selector */
+  document.querySelectorAll('[data-tabs]').forEach(function (tabs) {
     tabs.hidden = false;
-    var rows = document.querySelectorAll('.sess[data-cat]');
+    var rows = document.querySelectorAll(tabs.dataset.items);
     var buttons = tabs.querySelectorAll('[data-filter]');
-    var empty = document.querySelector('.empty');
     buttons.forEach(function (b) {
       var f = b.dataset.filter, n = 0;
       rows.forEach(function (r) { if (f === 'all' || r.dataset.cat === f) n++; });
       var c = b.querySelector('.counter'); if (c) c.textContent = n;
       b.addEventListener('click', function () {
         buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-        var shown = 0;
-        rows.forEach(function (r) { var ok = f === 'all' || r.dataset.cat === f; r.hidden = !ok; if (ok) shown++; });
-        if (empty) empty.hidden = shown > 0;
+        rows.forEach(function (r) { r.hidden = !(f === 'all' || r.dataset.cat === f); });
       });
     });
-  }
+  });
 
   /* announcements sidebar scrollspy: the active topic is the last section whose top has passed the trigger line */
   var links = document.querySelectorAll('.side-nav a[href^="#"]');
