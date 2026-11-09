@@ -6,12 +6,13 @@
   <title>GitHub Universe '26: Highlights</title>
   <meta name="description" content="A crisp, unofficial recap of GitHub Universe 2026: the best sessions, every announcement, and what people outside GitHub are saying.">
   <meta property="og:title" content="GitHub Universe '26: Highlights">
-  <meta property="og:description" content="The best sessions, every announcement, and outside takes, in five minutes.">
+  <meta property="og:description" content="A crisp, unofficial recap of GitHub Universe 2026: the best sessions, every announcement, and what people outside GitHub are saying.">
   <meta name="theme-color" content="#0d1117">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>(function(){var t='dark';try{t=localStorage.getItem('u26-theme')||'dark'}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];document.documentElement.dataset.theme=t})()</script>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/app.js" defer></script>
+  <script>(function(){var m={'#sessions':'sessions.html','#voices':'voices.html'}[location.hash];if(m)location.replace(m)})()</script>
 </head>
 <body>
 
@@ -29,6 +30,13 @@
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
     <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
     <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M2 21h20"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
     <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
@@ -43,10 +51,10 @@
       <span>Universe '26 Highlights</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#big-picture">Big picture</a>
-      <a href="#sessions">Sessions</a>
-      <a href="#voices">Outside voices</a>
+      <a href="./" aria-current="page">Home</a>
+      <a href="sessions.html">Sessions</a>
       <a href="announcements.html">Announcements</a>
+      <a href="voices.html">Outside voices</a>
     </nav>
     <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
       <svg class="i sun"><use href="#i-sun"/></svg><svg class="i moon"><use href="#i-moon"/></svg>
@@ -65,7 +73,8 @@
       <p class="lede">The best sessions, every announcement, and what people outside GitHub made of it. Sorted by topic: agentic AI, the software lifecycle, security, and the platform underneath.</p>
       <div class="cta">
         <a class="btn primary" href="announcements.html">All announcements <svg class="i"><use href="#i-arrow"/></svg></a>
-        <a class="btn" href="#sessions">Top sessions</a>
+        <a class="btn" href="sessions.html">Top sessions</a>
+        <a class="btn" href="voices.html">Outside voices</a>
         <a class="btn" href="https://github.com/events/universe/recap">Official recap</a>
       </div>
       <div class="meta">
@@ -81,6 +90,37 @@
       </div>
     </div>
   </div>
+
+  <section id="explore">
+    <div class="wrap">
+      <p class="kicker reveal">Explore</p>
+      <h2 class="reveal">Pick your way in</h2>
+      <p class="sub reveal">Three pages, each short and sorted by topic.</p>
+      <div class="explore">
+        <a class="ex spot reveal" href="sessions.html" style="--c:var(--accent)">
+          <div class="ico"><svg class="i lg"><use href="#i-play"/></svg></div>
+          <h3>Sessions</h3>
+          <div class="big">13<small>picks, top 5 ranked</small></div>
+          <p>The talks worth your time, from stacked PRs to agent evals to supply chain threats. Filter by topic.</p>
+          <span class="go">See the sessions <svg class="i"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="ex spot reveal" href="announcements.html" style="--c:var(--purple)">
+          <div class="ico"><svg class="i lg"><use href="#i-list"/></svg></div>
+          <h3>Announcements</h3>
+          <div class="big">31<small>items, 3 GA, 13 in preview</small></div>
+          <p>Everything GitHub announced, grouped by topic in the order it was presented, with availability status and docs links.</p>
+          <span class="go">See the announcements <svg class="i"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="ex spot reveal" href="voices.html" style="--c:var(--green)">
+          <div class="ico"><svg class="i lg"><use href="#i-chat"/></svg></div>
+          <h3>Outside voices</h3>
+          <div class="big">12<small>takes, 3 critical</small></div>
+          <p>What press, analysts, independent writers and the community made of it, including the one independent benchmark.</p>
+          <span class="go">Read the takes <svg class="i"><use href="#i-arrow"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <section id="big-picture">
     <div class="wrap">
@@ -114,276 +154,42 @@
     </div>
   </section>
 
-  <section id="sessions">
+  <section id="start">
     <div class="wrap">
-      <p class="kicker reveal">Sessions</p>
-      <h2 class="reveal">Worth your time</h2>
-      <p class="sub reveal">The best on top, filterable by topic. Picks come from published abstracts and GitHub's own session recommendations, ranked by editorial judgment, not attendance or ratings. Session links open the Universe attendee portal.</p>
-
-      <div class="tabs" data-tabs data-items=".sess[data-cat]" hidden role="group" aria-label="Filter sessions by topic">
-        <button class="tab" data-filter="all" aria-pressed="true">All <span class="counter">13</span></button>
-        <button class="tab" data-filter="agentic" aria-pressed="false">Agentic AI <span class="counter">5</span></button>
-        <button class="tab" data-filter="sdlc" aria-pressed="false">SDLC &amp; quality <span class="counter">4</span></button>
-        <button class="tab" data-filter="security" aria-pressed="false">Security <span class="counter">3</span></button>
-        <button class="tab" data-filter="community" aria-pressed="false">Community <span class="counter">1</span></button>
+      <p class="kicker reveal">Start here</p>
+      <h2 class="reveal">If you only have two minutes</h2>
+      <p class="sub reveal">A few picks from each page.</p>
+      <div class="start">
+        <div class="mini reveal" style="--c:var(--accent)">
+          <h3><svg class="i"><use href="#i-play"/></svg> Top sessions</h3>
+          <ul>
+            <li><a href="sessions.html"><div><b>Stop waiting on your own pull requests: stacked PRs in practice</b><span class="sub2">Sameen Karim, GitHub</span></div></a></li>
+            <li><a href="sessions.html"><div><b>Inside GitHub Copilot's coding harness: optimizing across every model</b><span class="sub2">Julia Kasper, Microsoft</span></div></a></li>
+            <li><a href="sessions.html"><div><b>How GitHub taught Copilot to remember, and when to forget</b><span class="sub2">Cooper Nederhood and Alejandro Carderera, GitHub</span></div></a></li>
+          </ul>
+          <a class="all" href="sessions.html">All sessions <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="mini reveal" style="--c:var(--purple)">
+          <h3><svg class="i"><use href="#i-list"/></svg> Key announcements</h3>
+          <ul>
+            <li><a href="announcements.html#agents"><div><b>Copilot Fusion</b><span class="sub2">Model routing across effort levels</span></div><span class="status ga">GA</span></a></li>
+            <li><a href="announcements.html#agents"><div><b>Copilot Projects</b><span class="sub2">Parallel agents across repos</span></div><span class="status preview">Public preview</span></a></li>
+            <li><a href="announcements.html#workflow"><div><b>Copilot approvals</b><span class="sub2">Copilot can approve PRs, off by default</span></div><span class="status ga">GA</span></a></li>
+            <li><a href="announcements.html#workflow"><div><b>Stacked pull requests</b><span class="sub2">Small linked PRs, one-click stack merge</span></div><span class="status live">Available</span></a></li>
+            <li><a href="announcements.html#security"><div><b>Package firewall</b><span class="sub2">Blocks risky npm packages</span></div><span class="status preview">Public preview</span></a></li>
+          </ul>
+          <a class="all" href="announcements.html">All announcements <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="mini reveal" style="--c:var(--green)">
+          <h3><svg class="i"><use href="#i-chat"/></svg> Worth reading</h3>
+          <ul>
+            <li><a href="voices.html"><div><b>VentureBeat</b><span class="sub2">Independent Fusion benchmark data, with caveats</span></div></a></li>
+            <li><a href="voices.html"><div><b>The Register</b><span class="sub2">Skeptical: outages and a catch-up build-out</span></div></a></li>
+            <li><a href="voices.html"><div><b>InfoWorld</b><span class="sub2">Analysts on governance and the review bottleneck</span></div></a></li>
+          </ul>
+          <a class="all" href="voices.html">All outside voices <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
-
-      <ul class="list reveal">
-        <li class="sess top" data-cat="sdlc" style="--c:var(--accent)">
-          <div class="lead">1</div>
-          <div>
-            <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777610662772001qS4e">Stop waiting on your own pull requests: stacked PRs in practice</a></h3>
-            <p>Break a change into small dependent PRs, review each on its own, merge as each is ready. Live demo with the GitHub CLI; a workflow you can use tomorrow.</p>
-            <div class="by"><b>Sameen Karim</b> · GitHub</div>
-          </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777610662772001qS4e">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess top" data-cat="agentic" style="--c:var(--purple)">
-          <div class="lead">2</div>
-          <div>
-            <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777584211997001vbxd">Inside GitHub Copilot's coding harness: optimizing across every model</a></h3>
-            <p>How the Copilot team tests and tunes its agent across models: reproducible benchmarks, thousands of autonomous tasks, LLM-graded assertions.</p>
-            <div class="by"><b>Julia Kasper</b> · Microsoft</div>
-          </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777584211997001vbxd">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess top" data-cat="agentic" style="--c:var(--purple)">
-          <div class="lead">3</div>
-          <div>
-            <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777557576923001fNOZ">How GitHub taught Copilot to remember, and when to forget</a></h3>
-            <p>A benchmark built from real PR sequences shows that piling up context can hurt agent performance, and what that means for agent memory.</p>
-            <div class="by"><b>Cooper Nederhood, Alejandro Carderera</b> · GitHub</div>
-          </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777557576923001fNOZ">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess top" data-cat="security" style="--c:var(--red)">
-          <div class="lead">4</div>
-          <div>
-            <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777658986177001QNCH">Disrupting supply chain attacks: a threat framework for GitHub Actions</a></h3>
-            <p>Maps supply chain attack techniques to Actions controls across the ecosystem, the workflow attack surface and runner infrastructure.</p>
-            <div class="by"><b>Steve Glass, Greg Ose</b> · GitHub</div>
-          </div>
-          <div class="side"><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777658986177001QNCH">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess top" data-cat="security" style="--c:var(--red)">
-          <div class="lead">5</div>
-          <div>
-            <span class="pick"><svg class="i" style="width:12px;height:12px"><use href="#i-star"/></svg> Top pick</span>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777602763278001LSdB">What happens behind the scenes when you run <code>npm install</code></a></h3>
-            <p>Traces a dependency back to the people, permissions and release systems behind it, including the limits of <code>npm audit</code>, provenance and OIDC.</p>
-            <div class="by"><b>Karen Li, Leo Balter</b> · GitHub</div>
-          </div>
-          <div class="side"><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777602763278001LSdB">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-
-        <li class="sess" data-cat="agentic" style="--c:var(--purple)">
-          <div class="lead"><svg class="i lg"><use href="#i-spark"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1778275240014001huB4">Treat your AI context as infrastructure</a></h3>
-            <p>What instructions, skills and MCP servers are each best for, and how to share the right context across a team as the setup grows.</p>
-            <div class="by"><b>Christopher Harrison</b> · GitHub</div>
-          </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1778275240014001huB4">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="agentic" style="--c:var(--purple)">
-          <div class="lead"><svg class="i lg"><use href="#i-spark"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776460904386001a8nL">Your benchmark is lying: what evals actually look like</a></h3>
-            <p>How Copilot evaluates models in production: what the team measures, and what it has stopped measuring.</p>
-            <div class="by"><b>Walker Chabbott</b> · GitHub &nbsp;·&nbsp; <b>Julia Kasper</b> · Microsoft</div>
-          </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776460904386001a8nL">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="sdlc" style="--c:var(--accent)">
-          <div class="lead"><svg class="i lg"><use href="#i-merge"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1787615869752001IyaJ">Beyond pass or fail: how agents verify AI-generated code</a></h3>
-            <p>How agents investigate an app, reproduce odd behavior, and tell a product bug from a broken test or infrastructure failure, with deterministic controls around them.</p>
-            <div class="by"><b>Jeff An</b> · Momentic</div>
-          </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1787615869752001IyaJ">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="sdlc" style="--c:var(--accent)">
-          <div class="lead"><svg class="i lg"><use href="#i-merge"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777687372042001GE87">The 2 a.m. RCA agent: architecting AI that investigates, not hallucinates</a></h3>
-            <p>Deterministic code collects signals, traverses topology, correlates and scores. The language model only narrates the evidence.</p>
-            <div class="by"><b>Achin Gupta</b> · Intuit &nbsp;·&nbsp; <b>Divya Mahajan</b> · Amazon</div>
-          </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777687372042001GE87">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="security" style="--c:var(--red)">
-          <div class="lead"><svg class="i lg"><use href="#i-shield"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777489102123001ThSM">Open pull requests, don't merge them: fine-grained authorization for hosted MCP servers</a></h3>
-            <p>An identity-aware proxy enforces per-identity permissions in front of a hosted MCP server, with no changes to the upstream server.</p>
-            <div class="by"><b>Nick Taylor</b> · Pomerium</div>
-          </div>
-          <div class="side"><span class="label c-sec">Security</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1777489102123001ThSM">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="agentic" style="--c:var(--purple)">
-          <div class="lead"><svg class="i lg"><use href="#i-spark"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1785179690271001xi4A">Build once, run on any agent: a practical guide to agent skills</a></h3>
-            <p>When a workflow is worth turning into a reusable skill, with examples from recurring work and a production data engineering team.</p>
-            <div class="by"><b>Andrea Griffiths</b> · GitHub &nbsp;·&nbsp; <b>Shishir Tewari</b> · Procore</div>
-          </div>
-          <div class="side"><span class="label c-agent">Agentic AI</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1785179690271001xi4A">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="sdlc" style="--c:var(--accent)">
-          <div class="lead"><svg class="i lg"><use href="#i-merge"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776349155958001oTwn">One CLI to replace your entire JavaScript toolchain</a></h3>
-            <p>A real migration to Vite+, an open source CLI for bundling, testing, linting, formatting and runtime management, plus the roadmap.</p>
-            <div class="by"><b>Alexander Lichter</b> · VoidZero</div>
-          </div>
-          <div class="side"><span class="label c-sdlc">SDLC</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1776349155958001oTwn">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-        <li class="sess" data-cat="community" style="--c:var(--green)">
-          <div class="lead"><svg class="i lg"><use href="#i-heart"/></svg></div>
-          <div>
-            <h3><a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1775902696655001nnFo">Lessons from building tech in a low-connectivity community</a></h3>
-            <p>Building CarbonSight for low-connectivity communities in Ghana, with an offline demo.</p>
-            <div class="by"><b>Alex Junior Antwi</b> · Braveon AI</div>
-          </div>
-          <div class="side"><span class="label c-comm">Community</span><a class="go" href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog/session/1775902696655001nnFo">Session page <svg class="i"><use href="#i-arrow"/></svg></a></div>
-        </li>
-      </ul>
-
-      <p class="note">Keynote speakers and more sessions are in the <a href="https://reg.githubuniverse.com/flow/github/universe26/attendee-portal/page/sessioncatalog?tab.allsessions=1783449560443001ldrh&amp;search.deliveryformat=1692799009854002CBbz">full on-demand catalog</a>. Featured speakers include Angie Jones, Kent C. Dodds, John Maeda and Franck Nijhof.</p>
-    </div>
-  </section>
-
-      <section id="voices">
-    <div class="wrap">
-      <p class="kicker reveal">Outside voices</p>
-      <h2 class="reveal">What people outside GitHub are saying</h2>
-      <p class="sub reveal">Press, analysts, independent writers and community voices, not GitHub's own posts. Summaries are paraphrased; short quotes are exact. Interviews with GitHub executives are labelled as such.</p>
-
-      <div class="tabs" data-tabs data-items=".comment[data-cat]" hidden role="group" aria-label="Filter outside voices">
-        <button class="tab" data-filter="all" aria-pressed="true">All <span class="counter">12</span></button>
-        <button class="tab" data-filter="critical" aria-pressed="false">Critical <span class="counter">3</span></button>
-        <button class="tab" data-filter="analysis" aria-pressed="false">Data &amp; analysis <span class="counter">5</span></button>
-        <button class="tab" data-filter="interview" aria-pressed="false">Interviews <span class="counter">2</span></button>
-        <button class="tab" data-filter="community" aria-pressed="false">Rivals &amp; community <span class="counter">2</span></button>
-      </div>
-
-      <div class="voices">
-        <article class="comment reveal" data-cat="critical" style="--c:var(--orange)">
-          <div class="comment-head"><span class="avatar" style="--a:#d29922;--b:#f85149">TC</span><strong>Thomas Claburn</strong><span>The Register · Oct 28</span><span class="label c-press">Press</span></div>
-          <div class="comment-body">
-            <h3><a href="https://www.theregister.com/ai-and-ml/2026/10/28/github-powering-up-four-million-extra-cores-to-stop-its-service-going-down/5305863">GitHub powering up four million extra cores to stop its service going down</a></h3>
-            <p>Frames the build-out against a year of outages: 7.4B commits in September (five times a year earlier), trouble from last December, and 90-day availability that touched about 84% on May 7, per reconstructed status-page data.</p>
-            <blockquote class="take"><span class="tag">Skeptical</span>Says the surge “caught the company unprepared” and reads free Copilot seats for Enterprise as an effort to boost workplace usage. Performance claims are attributed to GitHub executives.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
-          <div class="comment-head"><span class="avatar" style="--a:#4493f8;--b:#3fb950">CF</span><strong>Carl Franzen</strong><span>VentureBeat · Oct 28</span><span class="label c-press">Press</span></div>
-          <div class="comment-body">
-            <h3><a href="https://venturebeat.com/orchestration/github-copilot-fusion-mixes-models-to-achieve-near-opus-5-5-coding-performance-at-half-the-per-task-cost">GitHub Copilot Fusion mixes models to achieve near-Opus 5.5 coding performance at half the per-task cost</a></h3>
-            <p>Reports Artificial Analysis's measurements of Fusion Max: $5.59 per task versus $11.42 for Claude Code on Opus 5.5 Max, an index score of 60 against roughly 62, using about half the tokens.</p>
-            <blockquote class="take"><span class="tag">Independent data, with caveats</span>Results were uneven (Fusion led Terminal-Bench 4.0 but trailed on FrontierCode). The 40% time saving is GitHub-reported, and benchmark costs are not a forecast of an enterprise bill.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="critical" style="--c:var(--orange)">
-          <div class="comment-head"><span class="avatar" style="--a:#ab7df8;--b:#4493f8">AC</span><strong>Ana Maria Constantin</strong><span>The Next Web · Oct 28</span><span class="label c-press">Press</span></div>
-          <div class="comment-body">
-            <h3><a href="https://thenextweb.com/news/github-universe-copilot-fusion-octoverse-agents">GitHub launches Copilot Fusion as agents start 40% of pull requests</a></h3>
-            <p>Covers Fusion, Enterprise billing, Octoverse and the infrastructure build-out, and points out that nearly every performance and cost figure comes from Microsoft and GitHub executives.</p>
-            <blockquote class="take"><span class="tag">Read the numbers carefully</span>Parikh's “half the cost” and Nadella's “up to 77%” may measure different things, and “started with an agent draft” says nothing about whether the code was kept. GitHub says its agent count is a floor.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
-          <div class="comment-head"><span class="avatar" style="--a:#db61a2;--b:#ab7df8">AG</span><strong>Anirban Ghoshal</strong><span>InfoWorld · Oct 30</span><span class="label c-press">Press</span></div>
-          <div class="comment-body">
-            <h3><a href="https://www.infoworld.com/article/4242710/github-bets-on-multi-agent-software-development-with-copilot-overhaul.html">GitHub bets on multi-agent software development with Copilot overhaul</a></h3>
-            <p>Quotes three analysts on the redesigned Copilot app and Projects. The upside is one governed platform and less tool sprawl; the risks are agents colliding on the same files and ten parallel sessions producing ten PRs to review.</p>
-            <blockquote class="take"><span class="tag">Governance first</span>Advice to CIOs: restrict agent access to specific repos, enforce branch protection, require human approval before agent PRs merge, and send agent audit logs to a SIEM. Cites a 2026 study (CooperBench) finding about 30% lower success when agents collaborate.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="critical" style="--c:var(--orange)">
-          <div class="comment-head"><span class="avatar" style="--a:#f85149;--b:#d29922">KS</span><strong>Kanishk Singh</strong><span>Analytics India Magazine · Nov 3</span><span class="label c-press">Press</span></div>
-          <div class="comment-body">
-            <h3><a href="https://analyticsindiamag.com/ai-features/does-the-world-need-a-new-github">Does the World Need a New GitHub?</a></h3>
-            <p>Sets GitHub's rebuild beside the year's reliability record (eight incidents in July, a nearly eight-hour outage in August) and names rivals including Entire and Cursor Origin.</p>
-            <blockquote class="take"><span class="tag">Reliability and rivals</span>Asked directly, GitHub COO Kyle Daigle says “I don't think the world needs a new GitHub.” The piece also quotes Parikh conceding “there are times this year when we struggled.”</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
-          <div class="comment-head"><span class="avatar" style="--a:#3fb950;--b:#39c5cf">KT</span><strong>Kiara Taylor</strong><span>Investing.com · Nov 9</span><span class="label c-press">Market analysis</span></div>
-          <div class="comment-body">
-            <h3><a href="https://www.investing.com/analysis/can-microsofts-copilot-charge-enough-for-its-heaviest-users-200691203">Can Microsoft's Copilot Charge Enough for Its Heaviest Users?</a></h3>
-            <p>Asks whether Microsoft can profitably bill Copilot's heaviest users now that usage-based credits exist, using Copilot Business's $19 seat with 1,900 pooled credits as the worked example.</p>
-            <blockquote class="take"><span class="tag">Follow the margin</span>Finds Microsoft's disclosures do not separate paid overage from included or promotional credits, and that GitHub appears in 13 sentences of the earnings call with no cost or margin figures.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="community" style="--c:var(--green)">
-          <div class="comment-head"><span class="avatar" style="--a:#d29922;--b:#db61a2">RH</span><strong>Ronald Holman</strong><span>Tech Times · Oct 28</span><span class="label c-press">Press</span></div>
-          <div class="comment-body">
-            <h3><a href="https://www.techtimes.com/articles/329629/20261028/github-processing-17-million-ai-pull-requests-month-can-platform-built-2008-actually-handle.htm">GitHub Is Processing 17 Million AI Pull Requests a Month. Can a Platform Built in 2008 Actually Handle That?</a></h3>
-            <p>Reports that GitHub's former CEO Thomas Dohmke launched a rival platform, Entire, days before Universe, billed as a distributed Git forge for agent-era workloads. Entire is also mentioned by Analytics India Magazine and The AI Economy.</p>
-            <blockquote class="take"><span class="tag">Competition</span>Sets Universe's infrastructure message against that launch. The $60M funding figure is Tech Times' own, and its 17 million PRs a month headline figure could not be matched to Octoverse.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="interview" style="--c:var(--purple)">
-          <div class="comment-head"><span class="avatar" style="--a:#4493f8;--b:#ab7df8">VF</span><strong>Vladimir Fedorov</strong><span>iTWire · Oct 29 · GitHub's CTO</span><span class="label c-ms">Interview</span></div>
-          <div class="comment-body">
-            <h3><a href="https://itwire.com/business-it-news/enterprise-solutions/human-judgment-is-the-scarce-resource-in-ai-software-development-says-github-cto">Human judgment is the scarce resource in AI software development says GitHub CTO</a></h3>
-            <p>An interview at Universe on where humans belong as agents write and review code. An interview with a GitHub executive, so GitHub's view rather than an outside check.</p>
-            <blockquote class="take"><span class="tag">The case for approvals</span>Fedorov points to models from different families catching each other's mistakes, the idea behind Max review. Copilot approvals are off by default and admins can restrict which file paths Copilot may approve.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="interview" style="--c:var(--purple)">
-          <div class="comment-head"><span class="avatar" style="--a:#ab7df8;--b:#db61a2">JP</span><strong>Jay Parikh</strong><span>Latent Space · Nov 8 · summary via BigGo</span><span class="label c-ms">Interview</span></div>
-          <div class="comment-body">
-            <h3><a href="https://www.youtube.com/watch?v=rSWiNE92xqM">GitHub’s Growth: 225M Developers, 34.3B Commits — Jay Parikh, EVP of CoreAI, Microsoft</a></h3>
-            <p>A video interview recorded after the keynote. Per BigGo's summary, Parikh describes GitHub as composable primitives (repos, issues, PRs, security findings) rather than one enforced workflow, and says PRs can become optional.</p>
-            <blockquote class="take"><span class="tag">On cost and reliability</span>Per the summary, GitHub is adding per-organization token-spend visibility, model-swap recommendations and hard limits, and he calls finishing the Azure migration next year the goal. How spend maps to ROI is left open.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--accent)">
-          <div class="comment-head"><span class="avatar" style="--a:#4493f8;--b:#ab7df8">SW</span><strong>Simon Willison</strong><span>simonwillison.net · Oct 28</span><span class="label c-indie">Independent</span></div>
-          <div class="comment-body">
-            <h3><a href="https://simonwillison.net/2026/Oct/28/github-octoverse-2026/">GitHub Octoverse 2026</a></h3>
-            <p>Written from the venue, on a free ticket from GitHub's Stars program (he discloses this). Merged PRs tripled in under a year to 220M a month, commits more than tripled to 7.38B a month, and new repos doubled to 30.3M a month.</p>
-            <blockquote class="take"><span class="tag">Data-driven</span>Calls the charts a “stark representation of the impact of agentic engineering on GitHub,” and singles out the report's new industry and interoperability breakdowns.</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="analysis" style="--c:var(--purple)">
-          <div class="comment-head"><span class="avatar" style="--a:#ab7df8;--b:#db61a2">TB</span><strong>Tim Bozarth</strong><span>Microsoft · Oct 27</span><span class="label c-ms">Microsoft</span></div>
-          <div class="comment-body">
-            <h3><a href="https://commandline.microsoft.com/new-agentic-software-delivery-primitives/">New agentic software delivery primitives</a></h3>
-            <p>Plan, build, verify and observe still loop, but agents take on more execution. A shared knowledge layer becomes the new glue between stages.</p>
-            <blockquote class="take"><span class="tag">Framework</span>Human judgment concentrates on validation, operation and planning. Memory should be judged by whether it makes agents work better, not by how big it is. (GitHub's parent company, so not fully outside.)</blockquote>
-          </div>
-        </article>
-        <article class="comment reveal" data-cat="community" style="--c:var(--green)">
-          <div class="comment-head"><span class="avatar" style="--a:#3fb950;--b:#4493f8">C3</span><strong>Conn3x team</strong><span>conn3x.org · Oct 28</span><span class="label c-comm">Community</span></div>
-          <div class="comment-body">
-            <h3><a href="https://conn3x.org/blog/github-universe-2026">GitHub Universe, and the place Conn3x lives</a></h3>
-            <p>An open source project's thank-you note written on day one: code, releases and security reports all run on GitHub, with no CLA and no registry account needed.</p>
-            <blockquote class="take"><span class="tag">Grateful</span>“The tools are the easy bit.” The community of contributors matters more.</blockquote>
-          </div>
-        </article>
-      </div>
-
-      <div class="more-head"><h3>More coverage</h3><span>Links only; no summary beyond the note</span></div>
-      <ul class="cov">
-        <li><span class="who">i-programmer · Kay Ewbank · Oct 29</span><span><a href="https://www.i-programmer.info/news/105-artificial-intelligence/19251-github-universe-recap-copilot-dominates.html">GitHub Universe Recap - Copilot Dominates</a> <em>(a straightforward news recap)</em></span></li>
-        <li><span class="who">The AI Economy · Ken Yeung · Oct 28</span><span><a href="https://theaieconomy.substack.com/p/github-copilot-beginners-experts">How GitHub Plans to Make Coding Easier for Beginners and More Ambitious for Experts</a> <em>(largely favorable; notes a crowded model-routing market)</em></span></li>
-        <li><span class="who">The Stack · Yaël Bizouati-Kennedy · Oct 28</span><span><a href="https://www.thestack.technology/github-developers-pushed-more-code-in-2026-than-in-the-last-two-years-combined/">GitHub developers pushed more code in 2026 than in the last two years combined</a> <em>(Octoverse numbers; partly paywalled)</em></span></li>
-        <li><span class="who">Visual Studio Magazine · Oct 29</span><span><a href="https://visualstudiomagazine.com/articles/2026/10/29/github-universe-details-infrastructure-expansion-for-agent-scale-development.aspx">GitHub Universe Details Infrastructure Expansion for Agent-Scale Development</a> <em>(confirms the capacity figures)</em></span></li>
-        <li><span class="who">Techzine · Mels Dees · Oct 29</span><span><a href="https://www.techzine.eu/news/devops/145378/github-plans-to-deploy-4-million-additional-cpu-cores-to-prevent-outages/">GitHub plans to deploy 4 million additional CPU cores to prevent outages</a> <em>(based on The Register's coverage)</em></span></li>
-        <li><span class="who">The Verge · Emma Roth · Oct 28</span><span><a href="https://www.theverge.com/ai-artificial-intelligence/1020730/the-github-copilot-app-is-getting-a-big-update">The GitHub Copilot app is getting a big update.</a> <em>(short item)</em></span></li>
-        <li><span class="who">Tech Times · Clayton Lewis · Oct 29</span><span><a href="https://www.techtimes.com/articles/329667/20261029/microsoft-copilot-harness-opens-enterprise-developers-model-flexibility-platform-lock.htm">Microsoft Copilot Harness Opens to Enterprise Developers: Model Flexibility, Platform Lock-In</a> <em>(argues adopters accept Microsoft's routing and pricing)</em></span></li>
-        <li><span class="who">Microsoft · Lisa Brown Jaloza · Oct 29</span><span><a href="https://commandline.microsoft.com/github-universe-2026-recap/">Highlights from GitHub Universe 2026</a> <em>(Microsoft's own recap, centered on the developer community)</em></span></li>
-      </ul>
-
-      <p class="note">Most coverage repeats GitHub's own figures. The one independent measurement, Artificial Analysis's benchmark of Fusion, is reported by VentureBeat. The New Stack and DevOps.com also covered Universe, but their pages could not be read automatically, so they are not summarized here.</p>
     </div>
   </section>
 </main>
@@ -392,16 +198,21 @@
   <div class="wrap">
     <div class="row">
       <div>
-        <div class="links" style="margin-bottom:16px">
+        <div class="nav-foot">
+          <a href="./">Home</a>
+          <a href="sessions.html">Sessions</a>
           <a href="announcements.html">Announcements</a>
+          <a href="voices.html">Outside voices</a>
+        </div>
+        <div class="links" style="margin-bottom:16px">
           <a href="https://githubuniverse.com/">githubuniverse.com</a>
           <a href="https://github.com/events/universe/recap">Official recap</a>
           <a href="https://octoverse.github.com/">Octoverse 2026</a>
         </div>
         <p>An unofficial community recap. Not affiliated with or endorsed by GitHub. GitHub and Copilot are trademarks of GitHub, Inc.</p>
-        <p>Compiled and last updated November 9, 2026 from GitHub's blog, changelog and recap page, the Octoverse report, and the third-party pieces linked above. Feature statuses (GA, public preview) come from each feature's docs and are explained on the <a href="announcements.html">announcements page</a>.</p>
+        <p>Compiled and last updated November 9, 2026 from GitHub's blog, changelog and recap page, the Octoverse report, and the third-party pieces linked on the <a href="voices.html">outside voices</a> page. Feature statuses (GA, public preview) come from each feature's docs and are explained on the <a href="announcements.html">announcements page</a>.</p>
       </div>
-      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified →</a></div>
+      <div class="next"><b>Universe '27</b>Planned for October 2027. <a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified">Get notified &rarr;</a></div>
     </div>
   </div>
 </footer>
