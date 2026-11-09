@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcements · GitHub Universe '26 Highlights</title>
+  <meta name="description" content="Every GitHub Universe 2026 announcement, grouped by topic and listed in the order GitHub presented them, with availability status and docs links.">
+  <meta property="og:title" content="GitHub Universe '26: every announcement">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){var t='dark';try{t=localStorage.getItem('u26-theme')||'dark'}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];document.documentElement.dataset.theme=t})()</script>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16v4M17 18h4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.4-3.2 7.7-8 9-4.8-1.3-8-4.6-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-merge" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10"/><path d="M6 9c0 3 4 3 10 3"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M2 21h20"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></symbol>
+    <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="logo"><svg class="i" style="width:20px;height:20px"><use href="#i-orbit"/></svg></span>
+      <span>Universe '26 Highlights</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="./#big-picture">Big picture</a>
+      <a href="./#sessions">Sessions</a>
+      <a href="./#voices">Outside voices</a>
+      <a href="announcements.html" aria-current="page">Announcements</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Toggle theme">
+      <svg class="i sun"><use href="#i-sun"/></svg><svg class="i moon"><use href="#i-moon"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-head">
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="wrap">
+      <div class="term mono"><span class="dots" aria-hidden="true"><b></b><b></b><b></b></span><span><span class="p">$</span> git log <span class="f">--oneline</span> <span class="s">universe-26</span></span></div>
+      <h1>Every announcement, <span class="grad">in order.</span></h1>
+      <p>Everything GitHub announced at Universe '26 (Oct 28), grouped by topic and listed in the order GitHub presented it.</p>
+      <div class="legend">
+        <span class="status ga">GA</span><span class="status preview">Public preview</span><span class="status prog">In progress</span><span class="status live">Available</span><span class="status">Announced</span>
+        <span>Badges show status as stated in each feature's docs.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap layout">
+    <aside class="side-nav" aria-label="Categories">
+      <h2>Topics</h2>
+      <a href="#agents" class="active" style="--c:var(--purple)"><svg class="i"><use href="#i-spark"/></svg>Copilot &amp; agents <span class="counter">8</span></a>
+      <a href="#workflow" style="--c:var(--accent)"><svg class="i"><use href="#i-merge"/></svg>Review &amp; workflow <span class="counter">5</span></a>
+      <a href="#security" style="--c:var(--red)"><svg class="i"><use href="#i-shield"/></svg>Security <span class="counter">5</span></a>
+      <a href="#infra" style="--c:var(--orange)"><svg class="i"><use href="#i-server"/></svg>Infrastructure <span class="counter">3</span></a>
+      <a href="#plans" style="--c:var(--pink)"><svg class="i"><use href="#i-tag"/></svg>Plans <span class="counter">1</span></a>
+      <a href="#reports" style="--c:var(--green)"><svg class="i"><use href="#i-chart"/></svg>Reports &amp; next <span class="counter">2</span></a>
+    </aside>
+
+    <div>
+      <section class="group g-agent" id="agents">
+        <div class="group-head reveal"><span class="ico"><svg class="i lg"><use href="#i-spark"/></svg></span><h2>Copilot &amp; agents<small>The new app, model routing and cloud agents</small></h2></div>
+        <ol class="timeline">
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#1</span><h3><a href="https://github.com/features/ai/github-app" target="_blank" rel="noopener noreferrer">GitHub Copilot app <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Available</span></div>
+            <p>An app for agent-driven delivery. Links your agents and tools across projects and covers non-code work like specs, design discussions and telemetry analysis. The docs give no GA or preview label for the app itself.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#2</span><h3><a href="https://docs.github.com/copilot/concepts/models/copilot-fusion" target="_blank" rel="noopener noreferrer">Copilot Fusion <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status ga">GA</span></div>
+            <p>Formerly Project HydraFusion. Pick Standard, High or Max effort; Fusion decides whether one model or several fits. Works in VS Code, Copilot CLI, the Copilot app and JetBrains. Standard is on every plan; High and Max need Pro+, Max, Business or Enterprise. No separate charge: you pay each model's standard rate, with 30% off model costs on paid plans through Nov 30, 2026. GitHub says Fusion Max came within two points of Opus 5.5 Max on the Artificial Analysis Coding Agent Index at half the cost and 40% less time.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#3</span><h3><a href="https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-projects" target="_blank" rel="noopener noreferrer">Copilot Projects <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>A shared workspace for goals that span repos, or no repo at all. Runs parallel agent sessions in the background and returns results like PRs for review.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#4</span><h3><a href="https://docs.github.com/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents" target="_blank" rel="noopener noreferrer">Session continuity <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status">Announced</span></div>
+            <p>Start and follow one cloud agent session across the Copilot app, VS Code, the CLI and the web. The agent keeps running in the cloud.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#5</span><h3><a href="https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations" target="_blank" rel="noopener noreferrer">Copilot automations <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Available</span></div>
+            <p>Cloud-run workflows in a repo, started manually, by an event or on a schedule (issue triage, code review). They can learn from results and suggest improvements for you to approve. Private and internal repos only; each run uses AI credits and Actions minutes.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#6</span><h3><a href="https://docs.github.com/copilot/concepts/prompting-and-context/copilot-connectors" target="_blank" rel="noopener noreferrer">Copilot connectors <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>Authenticate once with services like Vercel, Cloudflare and Sentry. GitHub manages the MCP connection across the Copilot app, CLI, VS Code, web and code review. GitHub also names Cloudflare, Datadog and Figma as ecosystem partners.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#7</span><h3><a href="https://docs.github.com/copilot/how-tos/github-copilot-app/computer-use" target="_blank" rel="noopener noreferrer">Computer use <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>Copilot operates desktop apps that have no API, CLI or MCP support. Asks for approval first; organizations can disable it. macOS and Windows.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#8</span><h3>Connected tools and image generation</h3><span class="status">Announced</span></div>
+            <p>In the Copilot app, use context from tools like Slack and Figma to research requests, draft specs or work on designs. Create and edit images from chat.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="group g-flow" id="workflow">
+        <div class="group-head reveal"><span class="ico"><svg class="i lg"><use href="#i-merge"/></svg></span><h2>Review &amp; workflow<small>Keeping pull requests and issues moving</small></h2></div>
+        <ol class="timeline">
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#9</span><h3><a href="https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review" target="_blank" rel="noopener noreferrer">Copilot code review Max <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>The highest-effort review tier, for the most demanding PRs. GitHub says it posted the top F1 score on ReviewBench for high-severity issues. Docs put the average at about $10 per review (typically $1.50 to $25). Lite and Balanced remain for everyday reviews.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#10</span><h3><a href="https://docs.github.com/en/pull-requests/how-tos/stacked-pull-requests" target="_blank" rel="noopener noreferrer">Stacked pull requests <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Available</span></div>
+            <p>Split large work into small, linked PRs, review each on its own, then merge the whole stack in one click. Start with the <code>gh stack</code> extension for GitHub CLI.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#11</span><h3><a href="https://github.com/pulls/inbox" target="_blank" rel="noopener noreferrer">Pull request inbox <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Available</span></div>
+            <p>Scan open work, see its status and jump to the PRs that need you.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#12</span><h3><a href="https://docs.github.com/issues/tracking-your-work-with-issues/using-issues/using-artifacts-with-issues" target="_blank" rel="noopener noreferrer">Issue artifacts <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>Attach plans, research and links to an issue so teammates see the reasoning behind the work. CLI commands need GitHub CLI 2.103.0 or later.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#13</span><h3><a href="https://docs.github.com/get-started/writing-on-github/working-with-advanced-formatting/attaching-files" target="_blank" rel="noopener noreferrer">Attach media from GitHub CLI <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Available</span></div>
+            <p>A repeatable <code>--attach</code> flag embeds images and videos in issues, PRs and comments from your terminal.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="group g-sec" id="security">
+        <div class="group-head reveal"><span class="ico"><svg class="i lg"><use href="#i-shield"/></svg></span><h2>Security<small>Fix risk while you build, and keep bad packages out</small></h2></div>
+        <ol class="timeline">
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#14</span><h3><a href="https://docs.github.com/copilot/how-tos/github-copilot-app/view-and-fix-security-alerts" target="_blank" rel="noopener noreferrer">Security extension for the Copilot app <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>A Security canvas shows code you and your agents just wrote next to code scanning alerts. Ask Copilot to explain and fix findings, then review each change. Code scanning alerts only (not Dependabot or secret scanning), and fixes stay local until you commit.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#15</span><h3><a href="https://docs.github.com/en/code-security/concepts/code-scanning/ai-scan" target="_blank" rel="noopener noreferrer">AI Scan <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>On-demand whole-repo scanning in any language, with findings you can assign to Copilot. Also checks PRs in languages CodeQL doesn't cover, such as PHP and Terraform. The public preview status is stated for repository scanning.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#16</span><h3><a href="https://docs.github.com/code-security/how-tos/secure-your-secrets/prevent-future-leaks/enable-ai-push-protection" target="_blank" rel="noopener noreferrer">AI push protection <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>Catches unstructured secrets like passwords that patterns miss and blocks them at push, whether a person or an agent wrote the code. Needs push protection and AI secret detection both on, plus Secret Protection or Advanced Security. Uses AI credits.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#17</span><h3><a href="https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/protecting-endpoints-with-package-firewall" target="_blank" rel="noopener noreferrer">Package firewall <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>Stops malicious and risky npm packages before agents, runners or IDEs install them. npm only for now; Artifactory support is experimental.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#18</span><h3><a href="https://docs.github.com/code-security/concepts/supply-chain-security/about-reachability-analysis-for-dependabot-alerts" target="_blank" rel="noopener noreferrer">Reachability analysis <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status preview">Public preview</span></div>
+            <p>Shows which vulnerable functions your JavaScript or TypeScript code actually calls, so you can prioritize Dependabot alerts. Needs a lock file and GitHub-hosted runners.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="group g-infra" id="infra">
+        <div class="group-head reveal"><span class="ico"><svg class="i lg"><use href="#i-server"/></svg></span><h2>Infrastructure<small>Rebuilding the foundation for agent-scale load</small></h2></div>
+        <ol class="timeline">
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#19</span><h3>Capacity added this year</h3><span class="status live">Done</span></div>
+            <p>4 million CPU cores, 160 PB of high-speed storage and 50 Tb/s of network capacity.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#20</span><h3><a href="https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/" target="_blank" rel="noopener noreferrer">New Git architecture <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status prog">In progress</span></div>
+            <p>GitHub calls it its future architecture and is building it while the service keeps running: simpler primitives, storage decoupled from compute, minimal coordination, with authoritative data in Azure Blob Storage. In internal benchmarks it delivered up to 35× higher write throughput. No rollout dates given.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#21</span><h3><a href="https://github.blog/engineering/architecture-optimization/the-bridge-to-agent-scale-git-infrastructure/" target="_blank" rel="noopener noreferrer">Multi-region deployment in Azure <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status prog">In progress</span></div>
+            <p>Migration in progress; GitHub expects to finish early next year. As of Oct 21, a copy of 99.99999% of repositories is in Azure and Azure serves about half of Git traffic. The busiest repos are held back by a roughly 25 ms round trip.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">Context</span><h3><a href="https://github.blog/news-insights/company-news/github-availability-report-september-2026/" target="_blank" rel="noopener noreferrer">GitHub availability report, September 2026 <svg class="i"><use href="#i-ext"/></svg></a></h3></div>
+            <p>GitHub's own report (Oct 14) says its principle is “availability, then capacity, then features.” As of Oct 7, 120 of 160 production services ran in Central US Azure, and the Sept 30 goal for moving every service was missed. <a href="https://www.theregister.com/ai-and-ml/2026/10/28/github-powering-up-four-million-extra-cores-to-stop-its-service-going-down/5305863" target="_blank" rel="noopener noreferrer">The Register</a> covers the outage backdrop.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="group g-biz" id="plans">
+        <div class="group-head reveal"><span class="ico"><svg class="i lg"><use href="#i-tag"/></svg></span><h2>Plans<small>How you buy Copilot</small></h2></div>
+        <ol class="timeline">
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#22</span><h3><a href="https://github.com/enterprise/contact" target="_blank" rel="noopener noreferrer">Copilot included with GitHub Enterprise <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Available</span></div>
+            <p>Enterprise customers get all Copilot features (app, code review, automations) without a separate subscription and pay for the AI credits they use. Available now through GitHub Sales; self-serve is coming. Existing Copilot Business and Enterprise plans can stay as they are.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="group g-rep" id="reports">
+        <div class="group-head reveal"><span class="ico"><svg class="i lg"><use href="#i-chart"/></svg></span><h2>Reports &amp; what's next<small>The numbers, and the next Universe</small></h2></div>
+        <ol class="timeline">
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#23</span><h3><a href="https://octoverse.github.com/" target="_blank" rel="noopener noreferrer">Octoverse 2026 <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status live">Published</span></div>
+            <p>For the 12 months to Sept 30: 17.9B pushes, 34.3B commits, 1.3B merged PRs, 225M+ developers. TypeScript is #1, then Python and JavaScript. Over 40% of PRs in September began with an agent's first draft. Copilot cloud agent usage grew 230% year over year. <a href="https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/" target="_blank" rel="noopener noreferrer">Read the post</a>.</p></div></li>
+          <li class="item reveal"><span class="node"></span><div class="card spot">
+            <div class="card-top"><span class="num">#24</span><h3><a href="https://reg.githubuniverse.com/flow/github/universe26/getnotified" target="_blank" rel="noopener noreferrer">Universe '27 and Universe on the road <svg class="i"><use href="#i-ext"/></svg></a></h3><span class="status">Announced</span></div>
+            <p>Next Universe is planned for October 2027. Local “on the road” events are coming to other cities.</p></div></li>
+        </ol>
+      </section>
+
+      <p class="footnote">Sources: the <a href="https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/">Universe post</a> by Jay Parikh, the <a href="https://github.com/events/universe/recap">Universe recap</a>, the <a href="https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases/">Copilot app changelog</a> and each item's linked docs. Status labels come from those docs: “Public preview” and “GA” are stated there; “Available” means a way to use it now is documented but no preview or GA label is given; “Announced” means neither. The post also mentions work on GitHub's AI gateway and the harness, without details. The October changelog entries could not be retrieved, so smaller Universe-week changes may be missing.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <div class="links" style="margin-bottom:16px">
+          <a href="./">Highlights</a>
+          <a href="https://githubuniverse.com/">githubuniverse.com</a>
+          <a href="https://github.com/events/universe/recap">Official recap</a>
+        </div>
+        <p>An unofficial community recap. Not affiliated with or endorsed by GitHub. Compiled November 9, 2026.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
