@@ -12,7 +12,7 @@ A static, unofficial recap of GitHub Universe 2026 (Oct 28–29, San Francisco):
 | `voices.html` | What people outside GitHub said, plus a list of more coverage |
 | `404.html` | Not-found page (GitHub Pages serves it automatically; self-contained) |
 
-Shared files: `assets/style.css` (GitHub Primer-style theme, dark by default, light via the toggle), `assets/app.js` (theme toggle, filter tabs, animated hero graph, scroll effects), `assets/favicon.svg`.
+Shared files: `assets/style.css` (theme, dark by default, light via the toggle), `assets/app.js` (theme toggle, filter tabs, expand/collapse, back-to-top, animation toggle, scroll effects), `assets/octocat.js` (the binary Octocat background), `assets/favicon.svg`.
 
 Every page repeats the same header, nav and footer, so a nav change means editing all four pages.
 
@@ -25,6 +25,10 @@ Every page repeats the same header, nav and footer, so a nav change means editin
 ## Updating content
 
 Everything is hand-written HTML. Announcement status badges follow each feature's docs: `ga`, `preview`, `live` (available), `prog` (in progress), or the default "Announced" when no status is given. Check the linked docs before upgrading a badge, and keep the counts on the home page's Explore cards in step with the lists.
+
+## The binary Octocat
+
+`assets/octocat.js` draws a field of 0s and 1s on a `<canvas class="octo">` and lights an Octocat-style silhouette in it. It is a stylised drawing made for this site, not GitHub's official artwork or logo. Read left to right, top to bottom, the digits inside the silhouette spell `GitHub Universe 2026 ` in 8-bit ASCII. Effects: shimmer, a light sweep, flicker, a neon outline and a cursor flashlight. It pauses off-screen and in hidden tabs, shows a single static frame when the OS asks for reduced motion, and has an on/off toggle in every page footer (remembered in `localStorage`).
 
 ## Notes
 

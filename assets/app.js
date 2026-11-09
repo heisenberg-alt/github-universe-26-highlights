@@ -97,10 +97,13 @@
     window.addEventListener('beforeprint', function () { counters.forEach(function (el) { fmt(el, parseFloat(el.dataset.count)); }); });
   }
 
-  /* filter tabs (sessions, outside voices): each [data-tabs] filters the items matched by its data-items selector */
+  /* filter tabs: each [data-tabs] filters the items matched by data-items.
+     Optional: data-groups (sections to hide when empty, with sidebar counters kept in step) and data-notes (items hidden unless "All"). */
   document.querySelectorAll('[data-tabs]').forEach(function (tabs) {
     tabs.hidden = false;
     var rows = document.querySelectorAll(tabs.dataset.items);
+    var groups = tabs.dataset.groups ? document.querySelectorAll(tabs.dataset.groups) : [];
+    var notes = tabs.dataset.notes ? document.querySelectorAll(tabs.dataset.notes) : [];
     var buttons = tabs.querySelectorAll('[data-filter]');
     buttons.forEach(function (b) {
       var f = b.dataset.filter, n = 0;
@@ -109,23 +112,69 @@
       b.addEventListener('click', function () {
         buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
         rows.forEach(function (r) { r.hidden = !(f === 'all' || r.dataset.cat === f); });
+        notes.forEach(function (r) { r.hidden = f !== 'all'; });
+        groups.forEach(function (g) {
+          var vis = g.querySelectorAll('[data-cat]:not([hidden])').length;
+          g.hidden = vis === 0;
+          var link = document.querySelector('.side-nav a[href="#' + g.id + '"]');
+          if (link) { var k = link.querySelector('.counter'); if (k) k.textContent = vis; link.classList.toggle('dim', vis === 0); }
+        });
+        window.dispatchEvent(new Event('resize'));          // let the scrollspy recompute
       });
     });
   });
 
-  /* announcements sidebar scrollspy: the active topic is the last section whose top has passed the trigger line */
+  /* expand / collapse every "More detail" disclosure */
+  var expand = document.querySelector('[data-expand]');
+  if (expand) {
+    expand.hidden = false;
+    var open = false;
+    expand.addEventListener('click', function () {
+      open = !open;
+      document.querySelectorAll('details.more-detail').forEach(function (d) { d.open = open; });
+      expand.textContent = open ? 'Collapse all details' : 'Expand all details';
+    });
+  }
+
+  /* announcements sidebar scrollspy: the active topic is the last visible section whose top has passed the trigger line */
   var links = document.querySelectorAll('.side-nav a[href^="#"]');
   if (links.length) {
     var secs = [];
     links.forEach(function (a) { var s = document.getElementById(a.getAttribute('href').slice(1)); if (s) secs.push({ el: s, link: a }); });
     var spy = function () {
-      var line = window.innerHeight * 0.3, cur = secs[0];
-      secs.forEach(function (x) { if (x.el.getBoundingClientRect().top <= line) cur = x; });
-      if (window.innerHeight + window.scrollY >= root.scrollHeight - 4) cur = secs[secs.length - 1];
+      var line = window.innerHeight * 0.3, cur = null, last = null;
+      secs.forEach(function (x) {
+        if (x.el.hidden) return;
+        last = x; if (!cur) cur = x;
+        if (x.el.getBoundingClientRect().top <= line) cur = x;
+      });
+      if (window.innerHeight + window.scrollY >= root.scrollHeight - 4 && last) cur = last;
       secs.forEach(function (x) { x.link.classList.toggle('active', x === cur); });
     };
     window.addEventListener('scroll', spy, { passive: true });
     window.addEventListener('resize', spy);
     spy();
+  }
+
+  /* back to top */
+  var top = document.createElement('button');
+  top.className = 'to-top'; top.type = 'button'; top.setAttribute('aria-label', 'Back to top');
+  top.innerHTML = '<svg class="i"><use href="#i-arrow"/></svg>';
+  top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  document.body.appendChild(top);
+  var topTick = function () { top.classList.toggle('show', window.scrollY > 900); };
+  window.addEventListener('scroll', topTick, { passive: true }); topTick();
+
+  /* background animation on/off (also honours prefers-reduced-motion in octocat.js) */
+  var mbtn = document.querySelector('[data-motion-toggle]');
+  if (mbtn) {
+    var label = function () { mbtn.textContent = 'Background animation: ' + (root.dataset.motion === 'off' ? 'off' : 'on'); mbtn.setAttribute('aria-pressed', root.dataset.motion === 'off' ? 'false' : 'true'); };
+    label();
+    mbtn.addEventListener('click', function () {
+      var next = root.dataset.motion === 'off' ? 'on' : 'off';
+      root.dataset.motion = next;
+      try { localStorage.setItem('u26-motion', next); } catch (e) {}
+      label();
+    });
   }
 })();
